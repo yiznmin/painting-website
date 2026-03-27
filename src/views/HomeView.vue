@@ -5,7 +5,7 @@
     <section class="hero">
       <div class="hero-text">
         <p class="hero-label">客製化數字油畫</p>
-        <h1 class="hero-title">YiMui</h1>
+        <h1 class="hero-title">YiiMui</h1>
         <p class="hero-tagline">把回憶變成<br />可以留下來的樣子</p>
         <div class="hero-divider"></div>
         <div class="hero-actions">

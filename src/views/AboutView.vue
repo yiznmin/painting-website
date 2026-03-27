@@ -2,10 +2,10 @@
   <div class="about">
     <div class="about-header">
       <div class="about-avatar-wrap">
-        <img src="/images/headshot.jpg" alt="YiMui" class="about-avatar" />
+        <img src="/images/headshot.jpg" alt="YiiMui" class="about-avatar" />
       </div>
       <div class="about-intro">
-        <h1 class="about-name">YiMui</h1>
+        <h1 class="about-name">YiiMui</h1>
         <p class="about-en">客製化數字油畫</p>
         <p class="about-bio">
           從一張照片開始，慢慢填進顏色，最後變成一幅可以被保存的回憶。<br /><br />

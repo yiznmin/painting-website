@@ -179,7 +179,7 @@ async function handleSubmit() {
 
   try {
     const artworkInfo = route.query.artwork ? `詢問作品：${route.query.artwork}\n` : ''
-    const subject = encodeURIComponent(`[YiMui 客製化諮詢] ${form.name}`)
+    const subject = encodeURIComponent(`[YiiMui 客製化諮詢] ${form.name}`)
     const body = encodeURIComponent(
       `${artworkInfo}姓名：${form.name}\n電子郵件：${form.email}\n聯絡電話：${form.phone || '未填'}\n希望尺寸：${form.size || '未填'}\n\n諮詢內容：\n${form.message}\n\n附件數量：${files.value.length} 個（請另行寄送附件）`
     )
