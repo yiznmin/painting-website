@@ -94,6 +94,11 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { useRoute } from 'vue-router'
+import emailjs from '@emailjs/browser'
+
+const EMAILJS_SERVICE  = 'service_v06b5jn'
+const EMAILJS_TEMPLATE = 'template_c6n30bb'
+const EMAILJS_KEY      = 'NI_EHS8BRNmemSg2F'
 
 const route = useRoute()
 
@@ -155,21 +160,23 @@ async function handleSubmit() {
   submitting.value = true
 
   try {
-    const artworkInfo = route.query.artwork ? `詢問作品：${route.query.artwork}\n` : ''
-    const subject = encodeURIComponent(`[YiiMui 客製化諮詢] ${form.name}`)
-    const body = encodeURIComponent(
-      `${artworkInfo}姓名：${form.name}\n電子郵件：${form.email}\n聯絡電話：${form.phone || '未填'}\n希望尺寸：${form.size || '未填'}\n\n諮詢內容：\n${form.message}`
-    )
-    window.location.href = `mailto:yiimui.studio@gmail.com?subject=${subject}&body=${body}`
+    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
+      from_name:  form.name,
+      from_email: form.email,
+      phone:      form.phone || '未填',
+      size:       form.size  || '未填',
+      artwork:    route.query.artwork || '未指定',
+      message:    form.message
+    }, EMAILJS_KEY)
 
-    successMsg.value = '已開啟郵件程式，請確認送出。附件請另行寄送至 yiimui.studio@gmail.com。'
+    successMsg.value = '諮詢已送出！我們會盡快與您聯絡，參考圖片請透過 IG 或 Email 附件傳送。'
     form.name = ''
     form.email = ''
     form.phone = ''
     form.size = ''
     form.message = ''
   } catch {
-    errorMsg.value = '發生錯誤，請直接寄信至 yiimui.studio@gmail.com。'
+    errorMsg.value = '送出失敗，請直接透過 IG 私訊或寄信至 yiimui.studio@gmail.com。'
   } finally {
     submitting.value = false
   }
