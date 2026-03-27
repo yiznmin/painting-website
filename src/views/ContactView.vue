@@ -81,7 +81,9 @@
     </form>
 
     <div class="contact-note">
-      <p>送出後，我們會盡快與您聯絡。</p>
+      <p>送出後會盡快與您聯絡。也歡迎直接透過 Instagram 私訊：
+        <a href="https://www.instagram.com/yii.mui?igsh=MWJ3dHViMDIxcWp5ZQ==" target="_blank" rel="noopener" class="note-link">@yii.mui</a>
+      </p>
     </div>
 
     <!-- FAQ -->
@@ -118,28 +120,28 @@ const successMsg = ref('')
 
 const faqs = [
   {
-    q: '完成一幅作品需要多久時間？',
-    a: '依尺寸與複雜度而定，一般小尺寸（30×40）約需 2–3 週，大尺寸或複雜作品約需 4–6 週。'
+    q: '你們提供哪兩種服務？',
+    a: '「自己畫」：提供完整畫材組（畫布、顏料、畫筆、參考圖），你親手一筆一筆完成。「代畫完成」：提供照片由我幫你畫成一幅完整的油畫，完成後直接出貨。'
+  },
+  {
+    q: '不會畫畫也可以嗎？',
+    a: '完全可以！數字油畫已將畫面分成編號區塊，對應顏料顏色，只要按照數字填色就能完成，不需要任何繪畫基礎。'
+  },
+  {
+    q: '可以指定什麼主題？',
+    a: '寵物、人像、情侶、家人都可以，也接受紀念日或特殊場合的照片。提供清晰照片後我會協助評估效果。'
+  },
+  {
+    q: '確認訂單後可以修改內容嗎？',
+    a: '確認訂單後不再修改內容，因此我們會在確認前充分討論細節，並說明呈現效果，讓你再決定是否製作。'
   },
   {
     q: '費用怎麼計算？',
-    a: '費用依尺寸、色數與難易度報價，送出諮詢後我會根據您的需求提供詳細報價單。'
+    a: '依尺寸與服務類型報價，私訊照片與尺寸後我會提供詳細報價。確認後支付訂金，完成後付尾款。'
   },
   {
-    q: '可以指定人像或寵物嗎？',
-    a: '可以！人像、寵物、風景、靜物都接受。送出諮詢時附上您喜歡的參考圖，我們來討論細節。'
-  },
-  {
-    q: '如何付款？',
-    a: '確認訂單後先付訂金 50%，完成後確認滿意再付尾款。接受銀行轉帳、LINE Pay。'
-  },
-  {
-    q: '作品如何寄送？',
-    a: '完成後以厚紙板妥善包裝，使用黑貓宅急便寄送，運費由買方負擔，亦可面交（台北地區）。'
-  },
-  {
-    q: '可以要求修改嗎？',
-    a: '可以，製作過程中會提供草稿確認，正式完成前可提出一次修改意見。'
+    q: '需要自己購買材料或寄送嗎？',
+    a: '不需要，全程由我協助處理，包含材料準備與寄送，你只需要提供照片即可。'
   }
 ]
 
@@ -181,9 +183,9 @@ async function handleSubmit() {
     const body = encodeURIComponent(
       `${artworkInfo}姓名：${form.name}\n電子郵件：${form.email}\n聯絡電話：${form.phone || '未填'}\n希望尺寸：${form.size || '未填'}\n\n諮詢內容：\n${form.message}\n\n附件數量：${files.value.length} 個（請另行寄送附件）`
     )
-    window.location.href = `mailto:yimui@example.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:yiimui.studio@gmail.com?subject=${subject}&body=${body}`
 
-    successMsg.value = '已開啟郵件程式，請確認送出。附件請另行寄送至 yimui@example.com。'
+    successMsg.value = '已開啟郵件程式，請確認送出。附件請另行寄送至 yiimui.studio@gmail.com。'
     form.name = ''
     form.email = ''
     form.phone = ''
@@ -191,7 +193,7 @@ async function handleSubmit() {
     form.message = ''
     files.value = []
   } catch {
-    errorMsg.value = '發生錯誤，請直接寄信至 yimui@example.com。'
+    errorMsg.value = '發生錯誤，請直接寄信至 yiimui.studio@gmail.com。'
   } finally {
     submitting.value = false
   }
@@ -376,6 +378,16 @@ textarea:focus {
   font-size: 12px;
   color: var(--color-text-light);
   line-height: 1.7;
+}
+
+.note-link {
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  transition: border-color 0.15s;
+}
+
+.note-link:hover {
+  border-color: var(--color-text);
 }
 
 /* FAQ */

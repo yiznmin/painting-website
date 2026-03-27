@@ -2,26 +2,25 @@
   <div class="about">
     <div class="about-header">
       <div class="about-avatar-wrap">
-        <img v-if="false" src="" alt="YiMui" class="about-avatar" />
-        <div class="about-avatar-placeholder"></div>
+        <img src="/images/headshot.jpg" alt="YiMui" class="about-avatar" />
       </div>
       <div class="about-intro">
         <h1 class="about-name">YiMui</h1>
-        <p class="about-en">Digital Oil Painting Artist</p>
+        <p class="about-en">客製化數字油畫</p>
         <p class="about-bio">
-          從一張照片到一幅畫布，我將你珍貴的瞬間轉化為數位油畫。
-          每一筆都是對細節的堅持，每一幅畫都是獨一無二的故事。
-          不管是心愛的寵物、人像紀念，還是喜歡的風景，
-          我都能以手繪質感為你留存最美的記憶。
+          從一張照片開始，慢慢填進顏色，最後變成一幅可以被保存的回憶。<br /><br />
+          不管會不會畫畫，都能擁有一幅屬於自己的作品。<br />
+          你可以選擇親手一筆一筆完成，也可以交給我幫你畫成一幅完整的油畫。<br /><br />
+          在忙碌的生活裡，那些重要的畫面，依然能被好好留下來。
         </p>
         <div class="about-links">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="about-social">
+          <a href="https://www.instagram.com/yii.mui?igsh=MWJ3dHViMDIxcWp5ZQ==" target="_blank" rel="noopener" class="about-social">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <circle cx="12" cy="12" r="4"/>
               <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
             </svg>
-            @yimui
+            @yii.mui
           </a>
           <RouterLink to="/contact" class="about-social">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -30,6 +29,46 @@
         </div>
       </div>
     </div>
+
+    <!-- 服務項目 -->
+    <section class="services">
+      <h2 class="section-title">服務內容</h2>
+      <p class="section-sub">What I Offer</p>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-tag">自己畫</div>
+          <h3 class="service-name">數字油畫套組</h3>
+          <p class="service-desc">
+            提供完整畫材——畫布、顏料、畫筆、參考圖。<br />
+            照著數字一筆一筆填色，不需要任何繪畫基礎，<br />
+            任何人都能完成一幅屬於自己的作品。
+          </p>
+          <ul class="service-list">
+            <li>附完整畫材組</li>
+            <li>含參考圖對照</li>
+            <li>適合送禮或自用</li>
+          </ul>
+          <a href="https://tw.shp.ee/Ypd5hsNs" target="_blank" rel="noopener" class="service-shop-btn">前往賣場選款式 →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-tag">代畫完成</div>
+          <h3 class="service-name">客製代畫服務</h3>
+          <p class="service-desc">
+            提供你的照片，由我協助完成整幅作品。<br />
+            寵物、人像、情侶、家人都可以。<br />
+            交給你一幅可以被好好保存的回憶。
+          </p>
+          <ul class="service-list">
+            <li>照片轉數字油畫設計</li>
+            <li>全程由我處理</li>
+            <li>完成後直接出貨</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-subjects">
+        <span class="subject-tag" v-for="s in subjects" :key="s">{{ s }}</span>
+      </div>
+    </section>
 
     <!-- 製作流程 -->
     <section class="process">
@@ -41,6 +80,7 @@
           <div class="step-content">
             <h3 class="step-title">{{ step.title }}</h3>
             <p class="step-desc">{{ step.desc }}</p>
+            <a v-if="step.link" :href="step.link" target="_blank" rel="noopener" class="step-link">前往賣場 →</a>
           </div>
           <div v-if="i < steps.length - 1" class="step-arrow">→</div>
         </div>
@@ -70,26 +110,29 @@
 <script setup>
 const steps = [
   {
-    title: '送出諮詢',
-    desc: '填寫諮詢表單，附上參考圖片與尺寸需求。'
+    title: '私訊照片',
+    desc: '傳送照片與希望的尺寸，或至指定賣場選擇款式。',
+    link: 'https://tw.shp.ee/Ypd5hsNs'
   },
   {
-    title: '確認報價',
-    desc: '我會在 1–2 個工作日內回覆詳細報價與時程。'
+    title: '評估報價',
+    desc: '我協助評估內容並提供報價，說明呈現效果後由你決定是否製作。'
   },
   {
-    title: '付訂金',
-    desc: '確認後付 50% 訂金，正式開始製作。'
+    title: '確認付訂金',
+    desc: '確認訂單後支付訂金，訂單一旦確認即不再修改內容。'
   },
   {
-    title: '草稿確認',
-    desc: '完成草稿後請您確認構圖與色調，可提出修改意見。'
+    title: '開始製作',
+    desc: '依選擇服務進行——自己畫組準備畫材寄出；代畫組由我完成整幅作品。'
   },
   {
-    title: '完成付款',
-    desc: '確認滿意後付尾款，作品以精美包裝寄出。'
+    title: '完成出貨',
+    desc: '付尾款後出貨，全程由我處理，無需自行購買或寄送材料。'
   }
 ]
+
+const subjects = ['寵物', '人像', '情侶', '家人', '紀念日', '禮物', '收藏']
 
 const pricingTiers = [
   { size: '30×40', colors: '20 色', difficulty: '簡易', price: '詢價' },
@@ -176,6 +219,122 @@ const pricingTiers = [
 .about-social:hover {
   border-color: var(--color-text);
   color: var(--color-text);
+}
+
+/* 服務項目 */
+.services {
+  margin-bottom: 64px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.service-card {
+  background: var(--color-sidebar);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.service-tag {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 3px 12px;
+  width: fit-content;
+}
+
+.service-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.service-desc {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--color-text-light);
+}
+
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.service-list li {
+  font-size: 12px;
+  color: var(--color-text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--color-text-light);
+}
+
+.service-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.service-shop-btn {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1px;
+  transition: border-color 0.15s;
+  width: fit-content;
+}
+
+.service-shop-btn:hover {
+  border-color: var(--color-text);
+}
+
+.step-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.step-link:hover {
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.subject-tag {
+  font-size: 12px;
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+  .service-grid { grid-template-columns: 1fr; }
 }
 
 /* 共用 section */

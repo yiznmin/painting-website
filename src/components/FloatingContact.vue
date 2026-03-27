@@ -12,7 +12,7 @@
     <Transition name="pop">
       <div v-if="open" class="float-menu">
         <a
-          href="https://www.instagram.com/"
+          href="https://www.instagram.com/yii.mui?igsh=MWJ3dHViMDIxcWp5ZQ=="
           target="_blank"
           rel="noopener"
           class="float-item"
@@ -27,20 +27,7 @@
         </a>
 
         <a
-          href="https://line.me/"
-          target="_blank"
-          rel="noopener"
-          class="float-item"
-          title="LINE"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.5C22 6.81 17.52 3 12 3S2 6.81 2 11.5c0 4.21 3.73 7.73 8.76 8.4.34.07.8.23.92.52.1.26.07.67.03.94l-.15.9c-.05.26-.22 1.03.9.56 1.12-.47 6.04-3.56 8.24-6.09C21.38 14.62 22 13.13 22 11.5z"/>
-          </svg>
-          <span>LINE</span>
-        </a>
-
-        <a
-          href="mailto:yimui@example.com"
+          href="mailto:yiimui.studio@gmail.com"
           class="float-item"
           title="Email"
         >

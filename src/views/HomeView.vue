@@ -4,13 +4,13 @@
     <!-- Hero 區：純文字 + 右側線條裝飾 -->
     <section class="hero">
       <div class="hero-text">
-        <p class="hero-label">Digital Oil Painting</p>
+        <p class="hero-label">客製化數字油畫</p>
         <h1 class="hero-title">YiMui</h1>
-        <p class="hero-tagline">From inspiration to canvas,<br />flowing between digital and reality.</p>
+        <p class="hero-tagline">把回憶變成<br />可以留下來的樣子</p>
         <div class="hero-divider"></div>
         <div class="hero-actions">
           <RouterLink to="/portfolio" class="btn-primary">瀏覽作品集</RouterLink>
-          <RouterLink to="/contact" class="btn-ghost">客製化諮詢</RouterLink>
+          <RouterLink to="/contact" class="btn-ghost">私訊訂製</RouterLink>
         </div>
       </div>
 
@@ -45,7 +45,7 @@
     <section class="marquee-wrap" aria-hidden="true">
       <div class="marquee-track">
         <span v-for="n in 3" :key="n" class="marquee-text">
-          Digital Oil Painting &nbsp;·&nbsp; 數位油畫 &nbsp;·&nbsp; Custom Order &nbsp;·&nbsp; 客製化訂單 &nbsp;·&nbsp;
+          寵物 &nbsp;·&nbsp; 人像 &nbsp;·&nbsp; 情侶 &nbsp;·&nbsp; 家人 &nbsp;·&nbsp; 紀念日 &nbsp;·&nbsp; 禮物 &nbsp;·&nbsp; 收藏 &nbsp;·&nbsp; Custom Oil Painting &nbsp;·&nbsp;
         </span>
       </div>
     </section>
@@ -85,9 +85,9 @@
 
     <!-- CTA 底部 -->
     <section class="cta-section">
-      <p class="cta-sub">想要一幅專屬於你的畫嗎？</p>
-      <h2 class="cta-title">讓我將你的靈感變成畫布上的故事</h2>
-      <RouterLink to="/contact" class="btn-primary">立即諮詢</RouterLink>
+      <p class="cta-sub">那些重要的畫面，依然能被好好留下來</p>
+      <h2 class="cta-title">私訊照片＋尺寸<br />我來幫你評估與報價</h2>
+      <RouterLink to="/contact" class="btn-primary">私訊訂製</RouterLink>
     </section>
 
   </div>
@@ -105,16 +105,16 @@ const featuredArtworks = computed(() => {
 
 const features = [
   {
-    title: '手繪質感',
-    desc: '每一筆色彩都經過精心調配，保有真實油畫的層次與溫度。'
+    title: '自己畫',
+    desc: '提供完整畫材組，照著參考圖一筆一筆完成，不需要任何繪畫基礎，任何人都能擁有一幅屬於自己的作品。'
   },
   {
-    title: '全程溝通',
-    desc: '從草稿到完成，保持密切溝通，確保作品符合你的期望。'
+    title: '代畫完成',
+    desc: '提供你的照片，由我協助完成整幅作品，交給你一幅可以被好好保存的回憶。'
   },
   {
-    title: '安心寄送',
-    desc: '完成後以厚紙板妥善包裝，安全送達你的手中。'
+    title: '私訊訂製',
+    desc: '傳送照片與尺寸需求，我會協助評估與報價，全程由我處理，無需自行購買或寄送材料。'
   }
 ]
 </script>
