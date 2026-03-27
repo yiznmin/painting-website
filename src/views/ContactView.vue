@@ -96,9 +96,10 @@ import { ref, reactive } from 'vue'
 import { useRoute } from 'vue-router'
 import emailjs from '@emailjs/browser'
 
-const EMAILJS_SERVICE  = 'service_v06b5jn'
-const EMAILJS_TEMPLATE = 'template_c6n30bb'
-const EMAILJS_KEY      = 'NI_EHS8BRNmemSg2F'
+const EMAILJS_SERVICE       = 'service_v06b5jn'
+const EMAILJS_TEMPLATE      = 'template_c6n30bb'
+const EMAILJS_TEMPLATE_REPLY = 'template_9alvvyq'
+const EMAILJS_KEY           = 'NI_EHS8BRNmemSg2F'
 
 const route = useRoute()
 
@@ -166,6 +167,12 @@ async function handleSubmit() {
       phone:      form.phone || '未填',
       size:       form.size  || '未填',
       artwork:    route.query.artwork || '未指定',
+      message:    form.message
+    }, EMAILJS_KEY)
+
+    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE_REPLY, {
+      from_name:  form.name,
+      from_email: form.email,
       message:    form.message
     }, EMAILJS_KEY)
 
