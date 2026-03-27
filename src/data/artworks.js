@@ -36,40 +36,4 @@ export const artworks = [
     difficulty: '複雜',
     description: '手持糖葫蘆的貓咪，充滿童趣與節日歡樂。'
   },
-  {
-    id: 5,
-    title: '晨光少女',
-    image: '',
-    size: '30×40',
-    colors: '20色',
-    difficulty: '簡易',
-    description: '沐浴在晨光中的少女，柔和的色調帶出靜謐之美。'
-  },
-  {
-    id: 6,
-    title: '海邊沉思',
-    image: '',
-    size: '50×60',
-    colors: '36色',
-    difficulty: '中等',
-    description: '坐在海邊靜思的背影，海天一色，意境悠遠。'
-  },
-  {
-    id: 7,
-    title: '楓葉秋景',
-    image: '',
-    size: '40×40',
-    colors: '28色',
-    difficulty: '簡易',
-    description: '秋天的楓葉在陽光下燃燒，金紅交織。'
-  },
-  {
-    id: 8,
-    title: '夜市燈火',
-    image: '',
-    size: '50×70',
-    colors: '80色',
-    difficulty: '複雜',
-    description: '台灣夜市的繽紛燈火，熱鬧而溫暖。'
-  }
 ]
