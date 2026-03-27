@@ -49,27 +49,19 @@
       </div>
 
       <div class="form-group">
-        <label for="files">附上參考圖片（可多選）</label>
-        <div class="file-upload-area" @dragover.prevent @drop.prevent="handleDrop">
-          <input
-            id="files"
-            type="file"
-            multiple
-            accept="image/*"
-            class="file-input"
-            @change="handleFileChange"
-          />
-          <label for="files" class="file-label">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
-            <span>點擊或拖曳上傳圖片</span>
-          </label>
+        <label>參考圖片</label>
+        <div class="img-hint">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>
+            送出諮詢後，請附上參考圖片：<br />
+            · IG 私訊
+            <a href="https://www.instagram.com/yii.mui?igsh=MWJ3dHViMDIxcWp5ZQ==" target="_blank" rel="noopener" class="note-link">@yii.mui</a><br />
+            · Email 附件寄至
+            <a href="mailto:yiimui.studio@gmail.com" class="note-link">yiimui.studio@gmail.com</a>
+          </span>
         </div>
-        <ul v-if="files.length" class="file-list">
-          <li v-for="(f, i) in files" :key="i" class="file-item">
-            <span>{{ f.name }}</span>
-            <button type="button" class="remove-file" @click="removeFile(i)">✕</button>
-          </li>
-        </ul>
       </div>
 
       <div v-if="errorMsg" class="form-error">{{ errorMsg }}</div>
@@ -113,7 +105,6 @@ const form = reactive({
   message: ''
 })
 
-const files = ref([])
 const submitting = ref(false)
 const errorMsg = ref('')
 const successMsg = ref('')
@@ -145,20 +136,6 @@ const faqs = [
   }
 ]
 
-function handleFileChange(e) {
-  const newFiles = Array.from(e.target.files)
-  files.value = [...files.value, ...newFiles]
-  e.target.value = ''
-}
-
-function handleDrop(e) {
-  const newFiles = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'))
-  files.value = [...files.value, ...newFiles]
-}
-
-function removeFile(index) {
-  files.value.splice(index, 1)
-}
 
 async function handleSubmit() {
   errorMsg.value = ''
@@ -181,7 +158,7 @@ async function handleSubmit() {
     const artworkInfo = route.query.artwork ? `詢問作品：${route.query.artwork}\n` : ''
     const subject = encodeURIComponent(`[YiiMui 客製化諮詢] ${form.name}`)
     const body = encodeURIComponent(
-      `${artworkInfo}姓名：${form.name}\n電子郵件：${form.email}\n聯絡電話：${form.phone || '未填'}\n希望尺寸：${form.size || '未填'}\n\n諮詢內容：\n${form.message}\n\n附件數量：${files.value.length} 個（請另行寄送附件）`
+      `${artworkInfo}姓名：${form.name}\n電子郵件：${form.email}\n聯絡電話：${form.phone || '未填'}\n希望尺寸：${form.size || '未填'}\n\n諮詢內容：\n${form.message}`
     )
     window.location.href = `mailto:yiimui.studio@gmail.com?subject=${subject}&body=${body}`
 
@@ -191,7 +168,6 @@ async function handleSubmit() {
     form.phone = ''
     form.size = ''
     form.message = ''
-    files.value = []
   } catch {
     errorMsg.value = '發生錯誤，請直接寄信至 yiimui.studio@gmail.com。'
   } finally {
@@ -371,6 +347,23 @@ textarea:focus {
 .submit-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.img-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--color-hover);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+.img-hint svg {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .contact-note {
