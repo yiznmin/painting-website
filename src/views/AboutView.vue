@@ -52,17 +52,22 @@
         </div>
         <div class="service-card">
           <div class="service-tag">照片客製</div>
-          <h3 class="service-name">客製代畫</h3>
+          <h3 class="service-name">客製畫作</h3>
           <p class="service-desc">
-            提供你的照片，由我設計並完成整幅作品。<br />
+            提供你的照片，由我設計成專屬畫稿。<br />
             寵物、人像、情侶、家人都可以，<br />
-            交給你一幅可以被好好保存的回憶。
+            再選擇你想要的完成方式。
           </p>
-          <ul class="service-list">
-            <li>照片轉數字油畫設計</li>
-            <li>全程由我處理</li>
-            <li>畫完直接出貨到府</li>
-          </ul>
+          <div class="service-options">
+            <div class="service-option">
+              <span class="option-label">代畫</span>
+              <span class="option-desc">由我畫完後直接寄出</span>
+            </div>
+            <div class="service-option">
+              <span class="option-label">自己畫</span>
+              <span class="option-desc">提供畫材套組，親手完成屬於你的作品</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="service-subjects">
@@ -292,6 +297,36 @@ const pricingTiers = [
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.service-option {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--color-bg);
+  border-radius: 8px;
+}
+
+.option-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+.option-desc {
+  font-size: 12px;
+  color: var(--color-text-light);
+  line-height: 1.6;
 }
 
 .service-shop-btn {
