@@ -36,32 +36,32 @@
       <p class="section-sub">What I Offer</p>
       <div class="service-grid">
         <div class="service-card">
-          <div class="service-tag">自己畫</div>
-          <h3 class="service-name">數字油畫套組</h3>
+          <div class="service-tag">指定賣場選款</div>
+          <h3 class="service-name">選款代畫</h3>
           <p class="service-desc">
-            提供完整畫材——畫布、顏料、畫筆、參考圖。<br />
-            照著數字一筆一筆填色，不需要任何繪畫基礎，<br />
-            任何人都能完成一幅屬於自己的作品。
+            前往指定賣場挑選喜歡的款式，<br />
+            私訊我商品連結，<br />
+            由我代為購買、畫完後直接寄給你。
           </p>
           <ul class="service-list">
-            <li>附完整畫材組</li>
-            <li>含參考圖對照</li>
-            <li>適合送禮或自用</li>
+            <li>不需要自己買商品</li>
+            <li>不需要寄送給我</li>
+            <li>畫完直接出貨到府</li>
           </ul>
           <a href="https://tw.shp.ee/Ypd5hsNs" target="_blank" rel="noopener" class="service-shop-btn">前往賣場選款式 →</a>
         </div>
         <div class="service-card">
-          <div class="service-tag">代畫完成</div>
-          <h3 class="service-name">客製代畫服務</h3>
+          <div class="service-tag">照片客製</div>
+          <h3 class="service-name">客製代畫</h3>
           <p class="service-desc">
-            提供你的照片，由我協助完成整幅作品。<br />
-            寵物、人像、情侶、家人都可以。<br />
+            提供你的照片，由我設計並完成整幅作品。<br />
+            寵物、人像、情侶、家人都可以，<br />
             交給你一幅可以被好好保存的回憶。
           </p>
           <ul class="service-list">
             <li>照片轉數字油畫設計</li>
             <li>全程由我處理</li>
-            <li>完成後直接出貨</li>
+            <li>畫完直接出貨到府</li>
           </ul>
         </div>
       </div>
@@ -110,8 +110,8 @@
 <script setup>
 const steps = [
   {
-    title: '私訊照片',
-    desc: '傳送照片與希望的尺寸，或至指定賣場選擇款式。',
+    title: '私訊我',
+    desc: '選款代畫：傳送賣場商品連結。照片客製：傳送照片與希望尺寸。',
     link: 'https://tw.shp.ee/Ypd5hsNs'
   },
   {
