@@ -25,6 +25,7 @@ export const artworks = [
     size: '40×50',
     colors: '30色',
     difficulty: '簡易',
+    classification: '賣場指定款',
     description: '靜謐的花園一隅，光影交錯，如夢似幻。'
   },
   {
@@ -34,6 +35,7 @@ export const artworks = [
     size: '40×70',
     colors: '70色',
     difficulty: '複雜',
+    classification: '賣場指定款',
     description: '手持糖葫蘆的貓咪，充滿童趣與節日歡樂。'
   },
 ]

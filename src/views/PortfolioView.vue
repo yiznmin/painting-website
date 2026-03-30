@@ -5,6 +5,22 @@
       <p class="portfolio-subtitle">CHOOSE YOUR LEVEL OF SUPPORT</p>
     </div>
 
+    <!-- 分類 Tab -->
+    <div class="classification-bar">
+      <button
+        class="class-tab"
+        :class="{ active: activeClass === '' }"
+        @click="setClass('')"
+      >全部</button>
+      <button
+        v-for="c in classificationTabs"
+        :key="c"
+        class="class-tab"
+        :class="{ active: activeClass === c }"
+        @click="setClass(c)"
+      >{{ c }}</button>
+    </div>
+
     <!-- 篩選 Tags -->
     <div class="filter-bar">
       <button
@@ -31,6 +47,7 @@
         <div class="card-image-wrap">
           <img v-if="artwork.image" :src="artwork.image" :alt="artwork.title" class="card-image" />
           <div v-else class="card-image-placeholder"></div>
+          <span v-if="artwork.classification" class="card-badge">{{ artwork.classification }}</span>
         </div>
         <div class="card-info">
           <h3 class="card-title">{{ artwork.title }}</h3>
@@ -60,7 +77,16 @@ import { artworks } from '../data/artworks.js'
 const isLarge = ref(window.innerWidth >= 1200)
 window.addEventListener('resize', () => { isLarge.value = window.innerWidth >= 1200 })
 
-// 篩選
+// 分類 Tab
+const classificationTabs = [...new Set(artworks.map(a => a.classification).filter(Boolean))]
+const activeClass = ref('')
+
+function setClass(c) {
+  activeClass.value = c
+  currentPage.value = 1
+}
+
+// 篩選 Tags
 const filterTags = ['簡易', '中等', '複雜', '30×40', '40×40', '40×50', '40×70', '50×60', '50×70']
 const activeFilter = ref('')
 
@@ -70,10 +96,12 @@ function setFilter(tag) {
 }
 
 const filteredArtworks = computed(() => {
-  if (!activeFilter.value) return artworks
-  return artworks.filter(a =>
+  let result = artworks
+  if (activeClass.value) result = result.filter(a => a.classification === activeClass.value)
+  if (activeFilter.value) result = result.filter(a =>
     a.difficulty === activeFilter.value || a.size === activeFilter.value
   )
+  return result
 })
 
 const pageSize = computed(() => isLarge.value ? 6 : 4)
@@ -111,6 +139,36 @@ const pagedArtworks = computed(() => {
   font-size: 11px;
   letter-spacing: 0.18em;
   color: var(--color-text-light);
+}
+
+.classification-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.class-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all 0.18s;
+  letter-spacing: 0.04em;
+}
+
+.class-tab:hover {
+  color: var(--color-text);
+}
+
+.class-tab.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-text);
+  font-weight: 500;
 }
 
 .filter-bar {
@@ -175,6 +233,20 @@ const pagedArtworks = computed(() => {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+  position: relative;
+}
+
+.card-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(4px);
 }
 
 .card-image {
