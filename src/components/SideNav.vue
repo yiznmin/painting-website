@@ -2,6 +2,7 @@
   <nav class="sidebar">
     <RouterLink to="/" class="nav-item" :class="{ active: route.name === 'home' }">首頁</RouterLink>
     <RouterLink to="/portfolio" class="nav-item" :class="{ active: route.name === 'portfolio' || route.name === 'artwork' }">作品集</RouterLink>
+    <RouterLink to="/pricing" class="nav-item" :class="{ active: route.name === 'pricing' }">報價說明</RouterLink>
     <RouterLink to="/about" class="nav-item" :class="{ active: route.name === 'about' }">關於我</RouterLink>
     <RouterLink to="/contact" class="nav-item" :class="{ active: route.name === 'contact' }">客製化諮詢</RouterLink>
 
