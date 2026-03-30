@@ -25,7 +25,7 @@
       <div class="info-block">
         <div class="info-row">
           <span class="info-label">常見尺寸</span>
-          <span>40 × 50 cm</span>
+          <span>30 × 40 cm</span>
         </div>
         <div class="info-row">
           <span class="info-label">價格區間</span>
@@ -108,7 +108,7 @@ const plans = [
 const cases = [
   {
     title: '寵物客製油畫',
-    size: '40 × 50 cm',
+    size: '30 × 40 cm',
     style: '簡約（23 色）',
     time: '約 10 天',
     price: '2200 元',
@@ -116,7 +116,7 @@ const cases = [
   },
   {
     title: '人物紀念畫',
-    size: '40 × 50 cm',
+    size: '30 × 40 cm',
     style: '精緻（30+ 色）',
     time: '約 14 天',
     price: '2800 元',
