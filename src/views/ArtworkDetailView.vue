@@ -3,12 +3,29 @@
     <button class="back-btn" @click="router.back()">← 返回作品集</button>
 
     <div class="detail-layout">
-      <div class="detail-image-wrap">
-        <img v-if="artwork.image" :src="artwork.image" :alt="artwork.title" class="detail-image" />
-        <div v-else class="detail-image-placeholder"></div>
+      <div class="detail-left">
+        <div class="detail-image-wrap">
+          <img v-if="artwork.image" :src="artwork.image" :alt="artwork.title" class="detail-image" />
+          <div v-else class="detail-image-placeholder"></div>
+        </div>
+
+        <!-- 繪製過程 -->
+        <div v-if="artwork.processing?.length" class="processing-section">
+          <p class="processing-label">繪製過程</p>
+          <div class="processing-grid">
+            <img
+              v-for="(img, i) in artwork.processing"
+              :key="i"
+              :src="img"
+              :alt="`${artwork.title} 過程 ${i + 1}`"
+              class="processing-img"
+            />
+          </div>
+        </div>
       </div>
 
       <div class="detail-info">
+        <div v-if="artwork.classification" class="detail-classification">{{ artwork.classification }}</div>
         <h1 class="detail-title">{{ artwork.title }}</h1>
         <div class="detail-tags">
           <span class="tag">{{ artwork.size }} cm</span>
@@ -17,11 +34,17 @@
         </div>
         <p class="detail-desc">{{ artwork.description }}</p>
 
+        <!-- 未售出可議價提示 -->
+        <div v-if="artwork.negotiable" class="negotiable-block">
+          <p class="negotiable-title">此作品尚未售出</p>
+          <p class="negotiable-desc">價格可議，歡迎私訊詢問，我會根據您的預算提供報價。</p>
+        </div>
+
         <RouterLink
           :to="{ name: 'contact', query: { artwork: artwork.title } }"
           class="cta-btn"
         >
-          客製化這款
+          {{ artwork.negotiable ? '私訊詢問價格' : '客製化這款' }}
         </RouterLink>
       </div>
     </div>
@@ -69,9 +92,15 @@ const artwork = computed(() =>
   align-items: flex-start;
 }
 
-.detail-image-wrap {
+.detail-left {
   flex: 1;
   max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-image-wrap {
   border-radius: 10px;
   overflow: hidden;
 }
@@ -89,11 +118,69 @@ const artwork = computed(() =>
   border-radius: 10px;
 }
 
+.processing-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.processing-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+}
+
+.processing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.processing-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .detail-info {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.detail-classification {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 3px 12px;
+  width: fit-content;
+}
+
+.negotiable-block {
+  background: var(--color-hover);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.negotiable-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.negotiable-desc {
+  font-size: 12px;
+  color: var(--color-text-light);
+  line-height: 1.7;
 }
 
 .detail-title {
@@ -152,7 +239,7 @@ const artwork = computed(() =>
     flex-direction: column;
     gap: 24px;
   }
-  .detail-image-wrap {
+  .detail-left {
     max-width: 100%;
   }
 }

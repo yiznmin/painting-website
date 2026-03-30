@@ -97,7 +97,10 @@
           <div class="service-tags">
             <span>送禮</span><span>擺設</span><span>紀念</span>
           </div>
-          <RouterLink to="/contact" class="service-btn">詢問代畫</RouterLink>
+          <div class="service-btn-group">
+            <a href="https://tw.shp.ee/Ypd5hsNs" target="_blank" rel="noopener" class="service-btn">前往指定賣場</a>
+            <RouterLink to="/contact" class="service-btn-ghost">詢問代畫</RouterLink>
+          </div>
         </div>
 
         <!-- 照片客製 -->
@@ -498,6 +501,12 @@ const featuredArtworks = computed(() => {
 }
 
 .service-btn:hover { opacity: 0.75; }
+
+.service-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .service-btn-ghost {
   display: inline-block;

@@ -7,7 +7,8 @@ export const artworks = [
     size: '40×40',
     colors: '24色',
     difficulty: '簡易',
-    classification:'快速選購成品',
+    classification: '快速選購成品',
+    negotiable: true,
     description: '以細膩筆觸描繪戴著頭巾的白色貓咪，靜謐而優雅。'
   },
   {
@@ -17,7 +18,8 @@ export const artworks = [
     size: '40×40',
     colors: '24色',
     difficulty: '簡易',
-    classification:'快速選購成品',
+    classification: '快速選購成品',
+    negotiable: true,
     description: '斑斕花紋的貓咪，頭巾為牠增添一份神秘氣息。'
   },
   {
@@ -28,6 +30,7 @@ export const artworks = [
     colors: '30色',
     difficulty: '簡易',
     classification: '賣場指定款',
+    processing: ['/images/SecretGarden_processing_1.jpg'],
     description: '靜謐的花園一隅，光影交錯，如夢似幻。'
   },
   {
@@ -38,6 +41,7 @@ export const artworks = [
     colors: '70色',
     difficulty: '複雜',
     classification: '賣場指定款',
+    processing: ['/images/CandyHawsCat_processing_1.jpg', '/images/CandyHawsCat_processing_2.jpg'],
     description: '手持糖葫蘆的貓咪，充滿童趣與節日歡樂。'
   },
 ]
