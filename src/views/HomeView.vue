@@ -75,19 +75,78 @@
       </div>
     </section>
 
-    <!-- 服務特色 -->
-    <section class="features">
-      <div v-for="item in features" :key="item.title" class="feature-item">
-        <h3 class="feature-title">{{ item.title }}</h3>
-        <p class="feature-desc">{{ item.desc }}</p>
+    <!-- 服務項目 -->
+    <section class="services">
+      <div class="services-header">
+        <p class="services-label">SERVICES</p>
+        <h2 class="services-title">三種方式，都能擁有一幅專屬的畫</h2>
       </div>
+      <div class="service-cards">
+
+        <!-- 主推 -->
+        <div class="service-card featured">
+          <div class="service-badge">主推</div>
+          <div class="service-num">01</div>
+          <h3 class="service-name">數字油畫代畫</h3>
+          <p class="service-tagline">去賣場挑一幅喜歡的<br />傳給我，我幫你畫完寄出</p>
+          <ul class="service-points">
+            <li>到指定賣場選畫，傳連結就好</li>
+            <li>由我代購、代畫，不需要自己寄送</li>
+            <li>畫完直接寄到你手上</li>
+          </ul>
+          <div class="service-tags">
+            <span>送禮</span><span>擺設</span><span>紀念</span>
+          </div>
+          <RouterLink to="/contact" class="service-btn">詢問代畫</RouterLink>
+        </div>
+
+        <!-- 照片客製 -->
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <h3 class="service-name">照片客製</h3>
+          <p class="service-tagline">把你的照片<br />變成一幅專屬油畫</p>
+          <ul class="service-points">
+            <li>提供照片，我設計成專屬畫稿</li>
+            <li>可選代畫——由我完成寄出</li>
+            <li>可選自己畫——拿材料套組親手完成</li>
+          </ul>
+          <div class="service-tags">
+            <span>寵物</span><span>人像</span><span>情侶</span><span>家人</span>
+          </div>
+          <RouterLink to="/contact" class="service-btn-ghost">詢問客製</RouterLink>
+        </div>
+
+        <!-- 成品 -->
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <h3 class="service-name">成品作品</h3>
+          <p class="service-tagline">無需等待<br />直接擁有油畫質感</p>
+          <ul class="service-points">
+            <li>已完成的油畫作品，可直接購入</li>
+            <li>適合臨時送禮或快速佈置空間</li>
+            <li>每一幅都是獨一無二的原作</li>
+          </ul>
+          <div class="service-tags">
+            <span>快速到手</span><span>送禮首選</span>
+          </div>
+          <RouterLink to="/portfolio" class="service-btn-ghost">瀏覽成品</RouterLink>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 心理價值 -->
+    <section class="value-section">
+      <p class="value-quote">這不是買現成的畫</p>
+      <p class="value-quote accent">是為了某個人特別準備的</p>
+      <p class="value-sub">不知道送什麼禮物的時候，其實可以很簡單——<br />去賣場挑一幅好看的數字油畫，傳給我，我幫你畫完。<br />收到的是一幅完成的畫，不是還要自己動手的材料包。</p>
     </section>
 
     <!-- CTA 底部 -->
     <section class="cta-section">
-      <p class="cta-sub">那些重要的畫面，依然能被好好留下來</p>
-      <h2 class="cta-title">私訊照片＋尺寸<br />我來幫你評估與報價</h2>
-      <RouterLink to="/contact" class="btn-primary">私訊訂製</RouterLink>
+      <p class="cta-sub">有送禮需求？想先確認時間？</p>
+      <h2 class="cta-title">私訊照片或商品連結<br />我來幫你評估與安排</h2>
+      <RouterLink to="/contact" class="btn-primary">立即諮詢</RouterLink>
     </section>
 
   </div>
@@ -103,20 +162,6 @@ const featuredArtworks = computed(() => {
   return [candy, ...rest]
 })
 
-const features = [
-  {
-    title: '選款代畫',
-    desc: '從指定賣場挑選款式，私訊我連結，由我代購、畫完後直接寄出，不需要自己買或寄送。'
-  },
-  {
-    title: '照片客製',
-    desc: '提供照片由我設計成專屬畫稿，可選擇「代畫」由我完成寄出，或「自己畫」拿到畫材套組親手完成。'
-  },
-  {
-    title: '私訊訂製',
-    desc: '傳送商品連結或照片給我，我協助評估與報價，全程由我處理，畫完直接出貨到府。'
-  }
-]
 </script>
 
 <style scoped>
@@ -330,37 +375,175 @@ const features = [
   color: var(--color-text-light);
 }
 
-/* ── Features ── */
-.features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  padding: 40px 0;
+/* ── Services ── */
+.services-header {
+  text-align: center;
+  margin-bottom: 32px;
 }
 
-.feature-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 0 32px;
-  border-right: 1px solid var(--color-border);
+.services-label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--color-text-light);
+  margin-bottom: 10px;
 }
 
-.feature-item:first-child { padding-left: 0; }
-.feature-item:last-child  { border-right: none; }
-
-.feature-title {
-  font-size: 14px;
-  font-weight: 600;
+.services-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
   letter-spacing: 0.04em;
 }
 
-.feature-desc {
-  font-size: 13px;
-  line-height: 1.9;
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.service-card {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+}
+
+.service-card.featured {
+  border-color: var(--color-text);
+  background: var(--color-hover);
+}
+
+.service-badge {
+  position: absolute;
+  top: -11px;
+  left: 24px;
+  background: var(--color-text);
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+}
+
+.service-num {
+  font-size: 11px;
+  letter-spacing: 0.14em;
   color: var(--color-text-light);
+}
+
+.service-name {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.service-tagline {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+.service-points {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 12px;
+}
+
+.service-points li {
+  font-size: 12px;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.service-points li::before {
+  content: '✔ ';
+  color: var(--color-text);
+  font-size: 10px;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.service-tags span {
+  font-size: 11px;
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2px 10px;
+  letter-spacing: 0.04em;
+}
+
+.service-btn {
+  display: inline-block;
+  background: var(--color-text);
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  transition: opacity 0.2s;
+  text-align: center;
+}
+
+.service-btn:hover { opacity: 0.75; }
+
+.service-btn-ghost {
+  display: inline-block;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  transition: border-color 0.2s, background 0.2s;
+  text-align: center;
+}
+
+.service-btn-ghost:hover {
+  border-color: var(--color-text);
+  background: var(--color-hover);
+}
+
+/* ── Value ── */
+.value-section {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.value-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--color-text-light);
+}
+
+.value-quote.accent {
+  color: var(--color-text);
+}
+
+.value-sub {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--color-text-light);
+  margin-top: 8px;
 }
 
 /* ── CTA ── */
@@ -403,18 +586,7 @@ const features = [
 
 @media (max-width: 700px) {
   .featured-grid { grid-template-columns: repeat(2, 1fr); }
-  .features {
-    grid-template-columns: 1fr;
-    padding: 32px 0;
-    gap: 28px;
-  }
-  .feature-item {
-    padding: 0;
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 28px;
-  }
-  .feature-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .service-cards { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {

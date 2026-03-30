@@ -7,6 +7,7 @@ export const artworks = [
     size: '40×40',
     colors: '24色',
     difficulty: '簡易',
+    classification:'快速選購成品',
     description: '以細膩筆觸描繪戴著頭巾的白色貓咪，靜謐而優雅。'
   },
   {
@@ -16,6 +17,7 @@ export const artworks = [
     size: '40×40',
     colors: '24色',
     difficulty: '簡易',
+    classification:'快速選購成品',
     description: '斑斕花紋的貓咪，頭巾為牠增添一份神秘氣息。'
   },
   {
