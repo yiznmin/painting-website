@@ -87,6 +87,13 @@
 </template>
 
 <script setup>
+import { useSeo } from '../composables/useSeo.js'
+
+useSeo({
+  title: '報價說明',
+  description: '數字油畫客製報價說明，提供基本款、精緻款、高階款三種方案，依尺寸與複雜度報價。提供照片後評估，確認再製作。'
+})
+
 const plans = [
   {
     name: '基本款',

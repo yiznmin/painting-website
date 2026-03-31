@@ -95,6 +95,12 @@
 import { ref, reactive } from 'vue'
 import { useRoute } from 'vue-router'
 import emailjs from '@emailjs/browser'
+import { useSeo } from '../composables/useSeo.js'
+
+useSeo({
+  title: '客製化諮詢',
+  description: '數字油畫客製諮詢表單，填寫姓名、尺寸與想法，送出後我會盡快評估報價。也歡迎透過 Instagram 私訊 @yii.mui 直接詢問。'
+})
 
 const EMAILJS_SERVICE       = 'service_v06b5jn'
 const EMAILJS_TEMPLATE      = 'template_c6n30bb'

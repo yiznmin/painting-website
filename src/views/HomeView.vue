@@ -158,6 +158,12 @@
 <script setup>
 import { computed } from 'vue'
 import { artworks } from '../data/artworks.js'
+import { useSeo } from '../composables/useSeo.js'
+
+useSeo({
+  title: '數字油畫客製・代畫・送禮推薦',
+  description: '把你的照片變成一幅油畫。提供數字油畫客製、代畫服務與成品選購，適合紀念禮物、情侶、寵物、家人。台灣接單，私訊報價。'
+})
 
 const featuredArtworks = computed(() => {
   const candy = artworks.find(a => a.id === 4)

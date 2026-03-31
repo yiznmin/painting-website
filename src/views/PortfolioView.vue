@@ -73,6 +73,12 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { artworks } from '../data/artworks.js'
+import { useSeo } from '../composables/useSeo.js'
+
+useSeo({
+  title: '作品集',
+  description: '數字油畫作品集，包含寵物、人像、情侶、家人等客製作品，以及賣場指定款代畫成品。每幅都是獨一無二的手繪油畫。'
+})
 
 const isLarge = ref(window.innerWidth >= 1200)
 window.addEventListener('resize', () => { isLarge.value = window.innerWidth >= 1200 })

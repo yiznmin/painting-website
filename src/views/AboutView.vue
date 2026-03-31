@@ -119,6 +119,12 @@
 </template>
 
 <script setup>
+import { useSeo } from '../composables/useSeo.js'
+
+useSeo({
+  title: '關於 YiMui',
+  description: 'YiMui 是一個專注數字油畫的手繪創作品牌，提供照片客製、代畫服務與賣場選款代畫。把回憶變成可以留下來的樣子。'
+})
 const steps = [
   {
     title: '私訊我',

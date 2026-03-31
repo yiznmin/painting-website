@@ -84,6 +84,13 @@
 </template>
 
 <script setup>
+import { useSeo } from '../composables/useSeo.js'
+
+useSeo({
+  title: '尺寸指南',
+  description: '數字油畫尺寸選擇指南，30×40、40×50、40×70 等比例視覺對比，附日常物品參考與掛牆比例說明，幫你選到最適合的尺寸。'
+})
+
 const sizes = [
   {
     label: '30×40', w: 90, h: 120,
