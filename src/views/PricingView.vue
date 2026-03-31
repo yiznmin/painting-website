@@ -72,79 +72,11 @@
       </div>
     </section>
 
-    <!-- 尺寸指南 -->
-    <section class="section">
-      <h2 class="section-title">尺寸指南</h2>
-      <p class="section-subtitle">PAINTING SIZE GUIDE</p>
-
-      <!-- 等比例框架視覺 -->
-      <div class="size-visual">
-        <div v-for="s in sizes" :key="s.label" class="size-col">
-          <div class="size-frame-wrap">
-            <div class="size-frame" :style="{ width: s.w + 'px', height: s.h + 'px' }">
-              <span class="size-frame-label">{{ s.label }}</span>
-              <span class="size-frame-unit">cm</span>
-            </div>
-          </div>
-          <div class="size-col-name">{{ s.name }}</div>
-          <div class="size-col-approx">{{ s.approx }}</div>
-          <div class="size-col-place">{{ s.place }}</div>
-        </div>
-      </div>
-
-      <div class="size-a4-note">
-        <span class="size-a4-ref" :style="{ width: '63px', height: '89px' }">A4<br/>21×29.7</span>
-        <span class="size-a4-text">← A4 紙張作為參考比例，上方畫框皆為等比例縮放</span>
-      </div>
-
-      <div class="size-tip">
-        最簡單的方式：拿一張 A4 紙貼在牆上感受一下<br/>
-        30×40 ≈ 1.3 張 A4 ｜ 40×50 ≈ 2.3 張 A4 ｜ 40×70 ≈ 3.2 張 A4
-      </div>
-    </section>
-
-    <!-- 日常生活尺寸對比 -->
-    <section class="section">
-      <h2 class="section-title">日常生活尺寸對比</h2>
-      <p class="section-subtitle">EVERYDAY SIZE COMPARISON</p>
-
-      <div class="everyday-list">
-        <div v-for="s in sizes" :key="s.label" class="everyday-row">
-          <div class="everyday-frame-wrap">
-            <div class="everyday-frame" :style="{ width: s.w + 'px', height: s.h + 'px' }">
-              <span style="font-size:12px;font-weight:500;">{{ s.label }}</span>
-            </div>
-          </div>
-          <div class="everyday-approx-sign">≈</div>
-          <div class="everyday-items">
-            <div v-for="item in s.everyday" :key="item.icon" class="everyday-item">
-              <span class="everyday-icon">{{ item.icon }}</span>
-              <span class="everyday-text">{{ item.text }}</span>
-            </div>
-          </div>
-          <div class="everyday-desc">{{ s.everydayDesc }}</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 掛牆感受 -->
-    <section class="section">
-      <h2 class="section-title">掛在牆上的感覺</h2>
-      <p class="section-subtitle">ON YOUR WALL</p>
-
-      <div class="wall-frames">
-        <div v-for="s in sizes" :key="s.label" class="wall-col">
-          <div class="wall-frame" :style="{ width: s.w * 0.75 + 'px', height: s.h * 0.75 + 'px' }"></div>
-          <div class="wall-label">{{ s.label }}</div>
-          <div class="wall-name">{{ s.name }}</div>
-        </div>
-      </div>
-
-      <div class="wall-notes">
-        <p>沙發寬度通常 180～240 cm，掛一幅 40×70 剛好是沙發的 1/3～1/4 寬，比例很舒服。</p>
-        <p>也可以掛 2～3 幅小尺寸組合牆面！</p>
-      </div>
-    </section>
+    <!-- 尺寸導流 -->
+    <div class="size-guide-hint">
+      <span>不確定要選哪個尺寸？</span>
+      <RouterLink to="/size-guide" class="size-guide-link">查看尺寸指南 →</RouterLink>
+    </div>
 
     <!-- 聯絡 CTA -->
     <div class="cta-block">
@@ -176,40 +108,6 @@ const plans = [
     features: ['高還原度', '收藏等級'],
     price: '3000 元以上',
     featured: false
-  }
-]
-
-// 尺寸資料（等比例：1cm = 3px）
-const sizes = [
-  {
-    label: '30×40', w: 90, h: 120,
-    name: '小巧精緻', approx: '≈ A3 紙張大小', place: '書桌、床頭櫃',
-    everyday: [
-      { icon: '🗞️', text: '一張 A3 紙\n29.7×42cm' },
-      { icon: '🛍️', text: '購物袋\n差不多大' },
-      { icon: '📚', text: '兩本雜誌\n並排寬度' }
-    ],
-    everydayDesc: '適合放在書桌、床頭櫃、小角落妝點空間'
-  },
-  {
-    label: '40×50', w: 120, h: 150,
-    name: '經典百搭', approx: '≈ 筆電螢幕大小', place: '客廳、玄關',
-    everyday: [
-      { icon: '💻', text: '15吋筆電\n打開的樣子' },
-      { icon: '🪟', text: '小窗戶\n差不多大小' },
-      { icon: '🎒', text: '一個背包\n正面面積' }
-    ],
-    everydayDesc: '最熱門尺寸！客廳、玄關、臥室都很適合'
-  },
-  {
-    label: '40×70', w: 120, h: 210,
-    name: '大器質感', approx: '≈ 半面門的高度', place: '沙發上方、走廊',
-    everyday: [
-      { icon: '🚪', text: '門的 1/3\n高度' },
-      { icon: '🧘', text: '瑜伽墊\n寬度×1/3長' },
-      { icon: '🖥️', text: '27吋螢幕\n差不多高度' }
-    ],
-    everydayDesc: '氣勢十足！沙發上方、走廊、玄關主視覺'
   }
 ]
 
@@ -668,6 +566,32 @@ const cases = [
   line-height: 1.7;
   margin: 0;
 }
+
+/* 尺寸導流 */
+.size-guide-hint {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-hover);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--color-text-light);
+  margin-bottom: 48px;
+}
+
+.size-guide-link {
+  color: var(--color-text);
+  font-weight: 500;
+  border-bottom: 1px solid var(--color-border);
+  transition: border-color 0.15s;
+  white-space: nowrap;
+}
+
+.size-guide-link:hover { border-color: var(--color-text); }
+
+/* 移除不再使用的尺寸相關樣式 */
+.section-subtitle { display: none; }
 
 /* CTA */
 .cta-block {
