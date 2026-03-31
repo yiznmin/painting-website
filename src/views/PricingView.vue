@@ -99,7 +99,7 @@ const plans = [
     name: '基本款',
     colors: '23 色',
     features: ['簡約風格', '適合單人 / 背景簡單'],
-    price: '約 1500 ～ 2000 元',
+    price: '約 1500 ～ 2400 元',
     featured: false
   },
   {
