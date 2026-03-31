@@ -29,7 +29,7 @@
         </div>
         <div class="info-row">
           <span class="info-label">價格區間</span>
-          <span>約 2000 ～ 3000 元</span>
+          <span>約 1500 ～ 2600 元</span>
         </div>
       </div>
       <p class="note">實際報價會依以下因素微調：</p>
@@ -99,7 +99,7 @@ const plans = [
     name: '基本款',
     colors: '23 色',
     features: ['簡約風格', '適合單人 / 背景簡單'],
-    price: '約 2000 ～ 2400 元',
+    price: '約 1500 ～ 2000 元',
     featured: false
   },
   {
