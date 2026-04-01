@@ -213,6 +213,7 @@ const pagedArtworks = computed(() => {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  align-items: start;
 }
 
 @media (min-width: 1200px) {
@@ -237,10 +238,7 @@ const pagedArtworks = computed(() => {
 
 .card-image-wrap {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
   position: relative;
-  background: var(--color-border);
 }
 
 .card-badge {
@@ -258,8 +256,8 @@ const pagedArtworks = computed(() => {
 
 .card-image {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  display: block;
 }
 
 .card-image-placeholder {
