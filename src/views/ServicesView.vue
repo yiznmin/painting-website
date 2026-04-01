@@ -91,55 +91,6 @@
       </div>
     </section>
 
-    <!-- 為什麼選擇數字油畫 -->
-    <section class="why-section">
-      <div class="why-header">
-        <p class="why-label">WHY DIGITAL OIL PAINTING</p>
-        <h2 class="why-title">為什麼選擇數字油畫？</h2>
-      </div>
-
-      <div class="why-layout">
-        <!-- 左：優點列表 -->
-        <div class="why-points">
-          <div class="why-point" v-for="p in whyPoints" :key="p.title">
-            <div class="why-point-title">✔ {{ p.title }}</div>
-            <p class="why-point-desc">{{ p.desc }}</p>
-          </div>
-        </div>
-
-        <!-- 右：對比圖 -->
-        <div class="why-images">
-          <div class="why-img-block">
-            <img :src="'/images/outdoor_.jpg'" alt="數字油畫整體擺設效果" class="why-img" />
-            <span class="why-img-caption">整體擺設效果</span>
-          </div>
-          <div class="why-img-row">
-            <div class="why-img-block">
-              <img :src="'/images/detail1.jpg'" alt="數字油畫細節近拍" class="why-img" />
-              <span class="why-img-caption">細節近拍</span>
-            </div>
-            <div class="why-img-block">
-              <img :src="'/images/detail2jpg.jpg'" alt="數字油畫細節近拍 2" class="why-img" />
-              <span class="why-img-caption">細節近拍</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 小提醒 -->
-      <div class="why-note">
-        <div class="why-note-title">⚠ 小提醒</div>
-        <p class="why-note-desc">
-          數字油畫本質上仍是「填色畫作」，在某些顏色較淺的區域，近看可能會看到些微數字痕跡。
-        </p>
-        <ul class="why-note-list">
-          <li>日常擺放距離觀看時幾乎不會察覺</li>
-          <li>整體呈現依然細緻、有質感</li>
-          <li>不影響收藏與送禮效果</li>
-        </ul>
-      </div>
-    </section>
-
     <!-- 訂製流程 -->
     <section class="flow-section">
       <h2 class="flow-title">訂製流程</h2>
@@ -168,29 +119,6 @@ useSeo({
   title: '服務項目',
   description: '提供數字油畫代畫、照片客製油畫、成品作品選購三種服務。去賣場挑畫傳給我代畫、或提供照片客製專屬油畫，適合送禮、紀念、佈置空間。'
 })
-
-const whyPoints = [
-  {
-    title: '呈現效果接近真正油畫',
-    desc: '完成後的畫面質感，與一般油畫作品非常相似，適合作為居家擺設或送禮收藏。'
-  },
-  {
-    title: '價格更親民',
-    desc: '相比傳統手繪油畫，在相同尺寸與複雜度下，價格更容易入手。'
-  },
-  {
-    title: '比數位輸出更有溫度',
-    desc: '不是印刷，而是一筆一筆完成的作品，每一幅都帶有手作的痕跡與情感。'
-  },
-  {
-    title: '成品與預覽幾乎一致',
-    desc: '選擇款式時看到的完成圖，就是最終呈現效果，不需要擔心落差問題。'
-  },
-  {
-    title: '高紀念價值',
-    desc: '不論是情侶、寵物、家人或重要時刻，都能轉化成可以長久保存的畫作。'
-  }
-]
 
 const flow = [
   { icon: '💬', label: '私訊諮詢', desc: '傳照片或連結給我評估' },

@@ -141,21 +141,16 @@
 
     <!-- 為什麼選擇數字油畫 引流 -->
     <section class="why-teaser">
-      <div class="why-teaser-left">
-        <p class="why-teaser-label">WHY DIGITAL OIL PAINTING</p>
-        <h2 class="why-teaser-title">為什麼越來越多人<br/>選擇數字油畫？</h2>
-        <ul class="why-teaser-list">
-          <li>呈現效果接近真正油畫</li>
-          <li>價格比傳統油畫更親民</li>
-          <li>手工完成，比印刷更有溫度</li>
-          <li>成品與預覽幾乎一致</li>
-          <li>每一幅都具有紀念價值</li>
-        </ul>
-        <RouterLink to="/why" class="why-teaser-btn">了解更多 →</RouterLink>
-      </div>
-      <div class="why-teaser-right">
-        <img :src="'/images/outdoor_.jpg'" alt="數字油畫實際擺設效果" class="why-teaser-img" />
-      </div>
+      <p class="why-teaser-label">WHY DIGITAL OIL PAINTING</p>
+      <h2 class="why-teaser-title">為什麼越來越多人選擇數字油畫？</h2>
+      <ul class="why-teaser-list">
+        <li>呈現效果接近真正油畫</li>
+        <li>價格比傳統油畫更親民</li>
+        <li>手工完成，比印刷更有溫度</li>
+        <li>成品與預覽幾乎一致</li>
+        <li>每一幅都具有紀念價值</li>
+      </ul>
+      <RouterLink to="/why" class="why-teaser-btn">了解更多 →</RouterLink>
     </section>
 
     <!-- 心理價值 -->
@@ -553,20 +548,15 @@ const featuredArtworks = computed(() => {
 
 /* ── Why Teaser ── */
 .why-teaser {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 40px;
-  background: var(--color-sidebar);
-}
-
-.why-teaser-left {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 48px 40px;
+  background: var(--color-sidebar);
+  text-align: center;
 }
 
 .why-teaser-label {
@@ -589,6 +579,7 @@ const featuredArtworks = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  text-align: left;
 }
 
 .why-teaser-list li {
@@ -612,24 +603,11 @@ const featuredArtworks = computed(() => {
   font-weight: 500;
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 2px;
-  width: fit-content;
   transition: border-color 0.15s;
   letter-spacing: 0.04em;
 }
 
 .why-teaser-btn:hover { border-color: var(--color-text); }
-
-.why-teaser-right {
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.why-teaser-img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-}
 
 /* ── Value ── */
 .value-section {
@@ -702,8 +680,7 @@ const featuredArtworks = computed(() => {
 @media (max-width: 700px) {
   .featured-grid { grid-template-columns: repeat(2, 1fr); }
   .service-cards { grid-template-columns: 1fr; }
-  .why-teaser { grid-template-columns: 1fr; gap: 24px; padding: 28px 20px; }
-  .why-teaser-right { order: -1; }
+  .why-teaser { padding: 32px 20px; }
 }
 
 @media (max-width: 480px) {
