@@ -14,30 +14,11 @@
         </div>
       </div>
 
-      <!-- 右側 SVG 線條裝飾 -->
-      <div class="hero-deco" aria-hidden="true">
-        <svg viewBox="0 0 340 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="deco-svg">
-          <!-- 大圓 -->
-          <circle cx="200" cy="180" r="130" stroke="#c8c0b4" stroke-width="1"/>
-          <!-- 小圓 -->
-          <circle cx="200" cy="180" r="90" stroke="#d8d0c8" stroke-width="0.6" stroke-dasharray="4 6"/>
-          <!-- 小花瓣 -->
-          <ellipse cx="200" cy="180" rx="18" ry="28" stroke="#c8c0b4" stroke-width="0.8"/>
-          <ellipse cx="200" cy="180" rx="28" ry="18" stroke="#c8c0b4" stroke-width="0.8"/>
-          <!-- 細橫線裝飾 -->
-          <line x1="40" y1="90" x2="110" y2="90" stroke="#d4ccc4" stroke-width="0.6"/>
-          <line x1="40" y1="96" x2="85" y2="96" stroke="#d4ccc4" stroke-width="0.6"/>
-          <!-- 右下點點 -->
-          <circle cx="295" cy="340" r="2.5" fill="#d0c8be"/>
-          <circle cx="310" cy="355" r="1.8" fill="#d8d0c6"/>
-          <circle cx="280" cy="358" r="1.5" fill="#d8d0c6"/>
-          <!-- 左上小十字 -->
-          <line x1="55" y1="160" x2="55" y2="172" stroke="#ccc4ba" stroke-width="0.8" stroke-linecap="round"/>
-          <line x1="49" y1="166" x2="61" y2="166" stroke="#ccc4ba" stroke-width="0.8" stroke-linecap="round"/>
-          <!-- 弧線筆觸 -->
-          <path d="M60 320 Q120 290 160 310" stroke="#ccc4ba" stroke-width="0.8" stroke-linecap="round" fill="none"/>
-          <path d="M240 350 Q290 320 320 330" stroke="#ccc4ba" stroke-width="0.8" stroke-linecap="round" fill="none"/>
-        </svg>
+      <!-- 右側大頭照 -->
+      <div class="hero-deco">
+        <div class="hero-avatar-wrap">
+          <img src="/images/headshot.jpg" alt="YiiMui" class="hero-avatar" />
+        </div>
       </div>
     </section>
 
@@ -215,13 +196,21 @@ const featuredArtworks = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.85;
 }
 
-.deco-svg {
+.hero-avatar-wrap {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  border: 3px solid var(--color-border);
+}
+
+.hero-avatar {
   width: 100%;
-  max-width: 320px;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-label {

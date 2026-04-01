@@ -7,7 +7,6 @@
     <RouterLink to="/why" class="nav-item" :class="{ active: route.name === 'why' }">為什麼選數字油畫</RouterLink>
     <RouterLink to="/pricing" class="nav-item" :class="{ active: route.name === 'pricing' }">報價說明</RouterLink>
     <RouterLink to="/size-guide" class="nav-item" :class="{ active: route.name === 'size-guide' }">尺寸指南</RouterLink>
-    <RouterLink to="/about" class="nav-item" :class="{ active: route.name === 'about' }">關於我</RouterLink>
 
     <div class="sidebar-social">
       <a href="https://www.instagram.com/yii.mui?igsh=MWJ3dHViMDIxcWp5ZQ==" target="_blank" rel="noopener" class="social-link" title="Instagram">
