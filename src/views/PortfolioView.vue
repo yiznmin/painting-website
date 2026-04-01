@@ -237,9 +237,10 @@ const pagedArtworks = computed(() => {
 
 .card-image-wrap {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   position: relative;
+  background: var(--color-border);
 }
 
 .card-badge {
@@ -258,7 +259,7 @@ const pagedArtworks = computed(() => {
 .card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card-image-placeholder {

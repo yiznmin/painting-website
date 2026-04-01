@@ -212,13 +212,9 @@ const points = [
 
 .compare-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 10px;
-}
-
-.compare-img-wrap:first-child .compare-img {
-  aspect-ratio: 4 / 3;
+  background: var(--color-border);
 }
 
 .compare-caption {

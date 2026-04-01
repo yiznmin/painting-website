@@ -107,8 +107,7 @@ const artwork = computed(() =>
 
 .detail-image {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .detail-image-placeholder {
@@ -139,9 +138,9 @@ const artwork = computed(() =>
 
 .processing-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
+  background: var(--color-border);
 }
 
 .detail-info {

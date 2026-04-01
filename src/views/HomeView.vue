@@ -362,14 +362,15 @@ const featuredArtworks = computed(() => {
 }
 
 .featured-img-wrap {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
+  background: var(--color-border);
 }
 
 .featured-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.4s;
 }
 
