@@ -1,6 +1,7 @@
 <template>
   <nav class="sidebar">
     <RouterLink to="/" class="nav-item" :class="{ active: route.name === 'home' }">首頁</RouterLink>
+    <RouterLink to="/services" class="nav-item" :class="{ active: route.name === 'services' }">服務項目</RouterLink>
     <RouterLink to="/portfolio" class="nav-item" :class="{ active: route.name === 'portfolio' || route.name === 'artwork' }">作品集</RouterLink>
     <RouterLink to="/pricing" class="nav-item" :class="{ active: route.name === 'pricing' }">報價說明</RouterLink>
     <RouterLink to="/size-guide" class="nav-item" :class="{ active: route.name === 'size-guide' }">尺寸指南</RouterLink>
@@ -15,12 +16,6 @@
           <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
         </svg>
         Instagram
-      </a>
-      <a href="https://www.facebook.com/share/14ZkqZjqVUN/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" title="Facebook">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-        </svg>
-        Facebook
       </a>
     </div>
   </nav>

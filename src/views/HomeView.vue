@@ -9,7 +9,7 @@
         <p class="hero-tagline">把回憶變成<br />可以留下來的樣子</p>
         <div class="hero-divider"></div>
         <div class="hero-actions">
-          <RouterLink to="/portfolio" class="btn-primary">瀏覽作品集</RouterLink>
+          <RouterLink to="/portfolio" class="btn-primary">瀏覽作品</RouterLink>
           <RouterLink to="/contact" class="btn-ghost">私訊訂製</RouterLink>
         </div>
       </div>
@@ -99,6 +99,7 @@
           </div>
           <div class="service-btn-group">
             <a href="https://tw.shp.ee/Ypd5hsNs" target="_blank" rel="noopener" class="service-btn">前往指定賣場</a>
+            <RouterLink to="/portfolio" class="service-btn-ghost">先看成果再決定 →</RouterLink>
             <RouterLink to="/contact" class="service-btn-ghost">詢問代畫</RouterLink>
           </div>
         </div>
