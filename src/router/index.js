@@ -8,10 +8,12 @@ import PrivacyView from '../views/PrivacyView.vue'
 import PricingView from '../views/PricingView.vue'
 import SizeGuideView from '../views/SizeGuideView.vue'
 import ServicesView from '../views/ServicesView.vue'
+import WhyView from '../views/WhyView.vue'
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
   { path: '/services', name: 'services', component: ServicesView },
+  { path: '/why', name: 'why', component: WhyView },
   { path: '/portfolio', name: 'portfolio', component: PortfolioView },
   { path: '/portfolio/:id', name: 'artwork', component: ArtworkDetailView },
   { path: '/pricing', name: 'pricing', component: PricingView },

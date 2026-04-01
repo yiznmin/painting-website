@@ -2,6 +2,7 @@
   <nav class="sidebar">
     <RouterLink to="/" class="nav-item" :class="{ active: route.name === 'home' }">首頁</RouterLink>
     <RouterLink to="/services" class="nav-item" :class="{ active: route.name === 'services' }">服務項目</RouterLink>
+    <RouterLink to="/why" class="nav-item" :class="{ active: route.name === 'why' }">為什麼選數字油畫</RouterLink>
     <RouterLink to="/portfolio" class="nav-item" :class="{ active: route.name === 'portfolio' || route.name === 'artwork' }">作品集</RouterLink>
     <RouterLink to="/pricing" class="nav-item" :class="{ active: route.name === 'pricing' }">報價說明</RouterLink>
     <RouterLink to="/size-guide" class="nav-item" :class="{ active: route.name === 'size-guide' }">尺寸指南</RouterLink>
