@@ -22,19 +22,24 @@
     <section class="compare-section">
       <p class="compare-label">實際成品對比</p>
       <div class="compare-grid">
-        <div class="compare-img-wrap">
+        <div class="compare-img-wrap" @click="openLightbox('/images/outdoor_.jpg', '整體擺設效果')">
           <img :src="'/images/outdoor_.jpg'" alt="數字油畫整體擺設效果" class="compare-img" />
+          <div class="compare-zoom-hint">點擊放大</div>
           <span class="compare-caption">整體擺設效果</span>
         </div>
-        <div class="compare-img-wrap">
+        <div class="compare-img-wrap" @click="openLightbox('/images/detail1.jpg', '細節近拍')">
           <img :src="'/images/detail1.jpg'" alt="數字油畫細節近拍" class="compare-img" />
+          <div class="compare-zoom-hint">點擊放大</div>
           <span class="compare-caption">細節近拍</span>
         </div>
-        <div class="compare-img-wrap">
+        <div class="compare-img-wrap" @click="openLightbox('/images/detail2jpg.jpg', '筆觸質感')">
           <img :src="'/images/detail2jpg.jpg'" alt="數字油畫細節質感" class="compare-img" />
+          <div class="compare-zoom-hint">點擊放大</div>
           <span class="compare-caption">筆觸質感</span>
         </div>
       </div>
+
+      <ImageLightbox :src="lightboxSrc" :alt="lightboxAlt" @close="lightboxSrc = ''" />
     </section>
 
     <!-- 小提醒 -->
@@ -59,7 +64,13 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useSeo } from '../composables/useSeo.js'
+import ImageLightbox from '../components/ImageLightbox.vue'
+
+const lightboxSrc = ref('')
+const lightboxAlt = ref('')
+function openLightbox(src, alt = '') { lightboxSrc.value = src; lightboxAlt.value = alt }
 
 useSeo({
   title: '為什麼選擇數字油畫',
@@ -208,6 +219,27 @@ const points = [
   display: flex;
   flex-direction: column;
   gap: 6px;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.compare-zoom-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 10px;
+}
+
+.compare-img-wrap:hover .compare-zoom-hint {
+  opacity: 1;
 }
 
 .compare-img {

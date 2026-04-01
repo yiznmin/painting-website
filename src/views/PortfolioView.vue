@@ -38,27 +38,29 @@
     </div>
 
     <div class="artwork-grid">
-      <RouterLink
+      <div
         v-for="artwork in pagedArtworks"
         :key="artwork.id"
-        :to="{ name: 'artwork', params: { id: artwork.id } }"
         class="artwork-card"
       >
-        <div class="card-image-wrap">
+        <div class="card-image-wrap" @click="artwork.image && openLightbox(artwork.image, artwork.title)">
           <img v-if="artwork.image" :src="artwork.image" :alt="artwork.title" class="card-image" />
           <div v-else class="card-image-placeholder"></div>
           <span v-if="artwork.classification" class="card-badge">{{ artwork.classification }}</span>
+          <div v-if="artwork.image" class="card-zoom-hint">點擊放大</div>
         </div>
-        <div class="card-info">
+        <RouterLink :to="{ name: 'artwork', params: { id: artwork.id } }" class="card-info">
           <h3 class="card-title">{{ artwork.title }}</h3>
           <ul class="card-meta">
             <li>{{ artwork.size }}</li>
             <li>{{ artwork.colors }}</li>
             <li>{{ artwork.difficulty }}</li>
           </ul>
-        </div>
-      </RouterLink>
+        </RouterLink>
+      </div>
     </div>
+
+    <ImageLightbox :src="lightboxSrc" :alt="lightboxAlt" @close="lightboxSrc = ''" />
 
     <p v-if="pagedArtworks.length === 0" class="empty">沒有符合篩選條件的作品。</p>
 
@@ -74,6 +76,11 @@
 import { ref, computed, watch } from 'vue'
 import { artworks } from '../data/artworks.js'
 import { useSeo } from '../composables/useSeo.js'
+import ImageLightbox from '../components/ImageLightbox.vue'
+
+const lightboxSrc = ref('')
+const lightboxAlt = ref('')
+function openLightbox(src, alt = '') { lightboxSrc.value = src; lightboxAlt.value = alt }
 
 useSeo({
   title: '作品集',
@@ -239,6 +246,25 @@ const pagedArtworks = computed(() => {
 .card-image-wrap {
   width: 100%;
   position: relative;
+  cursor: zoom-in;
+}
+
+.card-zoom-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.card-image-wrap:hover .card-zoom-hint {
+  opacity: 1;
 }
 
 .card-badge {

@@ -4,9 +4,10 @@
 
     <div class="detail-layout">
       <div class="detail-left">
-        <div class="detail-image-wrap">
+        <div class="detail-image-wrap" @click="artwork.image && openLightbox(artwork.image, artwork.title)">
           <img v-if="artwork.image" :src="artwork.image" :alt="artwork.title" class="detail-image" />
           <div v-else class="detail-image-placeholder"></div>
+          <div v-if="artwork.image" class="detail-zoom-hint">點擊放大</div>
         </div>
 
         <!-- 繪製過程 -->
@@ -19,9 +20,12 @@
               :src="img"
               :alt="`${artwork.title} 過程 ${i + 1}`"
               class="processing-img"
+              @click="openLightbox(img, `${artwork.title} 過程 ${i + 1}`)"
             />
           </div>
         </div>
+
+        <ImageLightbox :src="lightboxSrc" :alt="lightboxAlt" @close="lightboxSrc = ''" />
       </div>
 
       <div class="detail-info">
@@ -57,9 +61,14 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { artworks } from '../data/artworks.js'
+import ImageLightbox from '../components/ImageLightbox.vue'
+
+const lightboxSrc = ref('')
+const lightboxAlt = ref('')
+function openLightbox(src, alt = '') { lightboxSrc.value = src; lightboxAlt.value = alt }
 
 const route = useRoute()
 const router = useRouter()
@@ -103,6 +112,31 @@ const artwork = computed(() =>
 .detail-image-wrap {
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.detail-zoom-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 10px;
+}
+
+.detail-image-wrap:hover .detail-zoom-hint {
+  opacity: 1;
+}
+
+.processing-img {
+  cursor: zoom-in;
 }
 
 .detail-image {
