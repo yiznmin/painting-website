@@ -412,6 +412,18 @@ const sizes = [
 .cta-btn-ghost:hover { border-color: var(--color-text); }
 
 @media (max-width: 600px) {
+  .size-visual {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 12px;
+    gap: 20px;
+  }
+  .wall-frames {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 12px;
+    gap: 20px;
+  }
   .everyday-row { flex-wrap: wrap; }
   .everyday-desc { margin-left: 0; border-left: none; padding-left: 0; border-top: 1px solid var(--color-border); padding-top: 10px; max-width: 100%; }
   .cta-block { flex-wrap: wrap; }
