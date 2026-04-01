@@ -110,16 +110,16 @@
         <!-- 右：對比圖 -->
         <div class="why-images">
           <div class="why-img-block">
-            <img src="/images/outdoor_.jpg" alt="數字油畫整體擺設效果" class="why-img" />
+            <img :src="'/images/outdoor_.jpg'" alt="數字油畫整體擺設效果" class="why-img" />
             <span class="why-img-caption">整體擺設效果</span>
           </div>
           <div class="why-img-row">
             <div class="why-img-block">
-              <img src="/images/detail1.jpg" alt="數字油畫細節近拍" class="why-img" />
+              <img :src="'/images/detail1.jpg'" alt="數字油畫細節近拍" class="why-img" />
               <span class="why-img-caption">細節近拍</span>
             </div>
             <div class="why-img-block">
-              <img src="/images/detail2jpg.jpg" alt="數字油畫細節近拍 2" class="why-img" />
+              <img :src="'/images/detail2jpg.jpg'" alt="數字油畫細節近拍 2" class="why-img" />
               <span class="why-img-caption">細節近拍</span>
             </div>
           </div>
