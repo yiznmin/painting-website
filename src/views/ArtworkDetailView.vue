@@ -4,10 +4,28 @@
 
     <div class="detail-layout">
       <div class="detail-left">
-        <div class="detail-image-wrap" @click="artwork.image && openLightbox(artwork.image, artwork.title)">
-          <img v-if="artwork.image" :src="artwork.image" :alt="artwork.title" class="detail-image" />
+        <!-- 主圖 / 輪播 -->
+        <div class="detail-image-wrap" @click="currentImg && openLightbox(currentImg, artwork.title)">
+          <img v-if="currentImg" :src="currentImg" :alt="artwork.title" class="detail-image" />
           <div v-else class="detail-image-placeholder"></div>
-          <div v-if="artwork.image" class="detail-zoom-hint">點擊放大</div>
+          <div v-if="currentImg" class="detail-zoom-hint">點擊放大</div>
+
+          <!-- 上一張 / 下一張 -->
+          <button v-if="images.length > 1 && imgIndex > 0" class="gallery-arrow left" @click.stop="imgIndex--">‹</button>
+          <button v-if="images.length > 1 && imgIndex < images.length - 1" class="gallery-arrow right" @click.stop="imgIndex++">›</button>
+        </div>
+
+        <!-- 縮圖列 -->
+        <div v-if="images.length > 1" class="gallery-thumbs">
+          <img
+            v-for="(img, i) in images"
+            :key="i"
+            :src="img"
+            :alt="`${artwork.title} ${i + 1}`"
+            class="gallery-thumb"
+            :class="{ active: i === imgIndex }"
+            @click="imgIndex = i"
+          />
         </div>
 
         <!-- 繪製過程 -->
@@ -76,6 +94,14 @@ const router = useRouter()
 const artwork = computed(() =>
   artworks.find(a => a.id === Number(route.params.id))
 )
+
+const imgIndex = ref(0)
+const images = computed(() => {
+  const img = artwork.value?.image
+  if (!img) return []
+  return Array.isArray(img) ? img : [img]
+})
+const currentImg = computed(() => images.value[imgIndex.value] ?? null)
 </script>
 
 <style scoped>
@@ -115,6 +141,53 @@ const artwork = computed(() =>
   position: relative;
   cursor: zoom-in;
 }
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  z-index: 2;
+}
+
+.gallery-arrow:hover { background: rgba(0,0,0,0.65); }
+.gallery-arrow.left  { left: 10px; }
+.gallery-arrow.right { right: 10px; }
+
+.gallery-thumbs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gallery-thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.15s;
+  opacity: 0.7;
+}
+
+.gallery-thumb.active {
+  border-color: var(--color-text);
+  opacity: 1;
+}
+
+.gallery-thumb:hover { opacity: 1; }
 
 .detail-zoom-hint {
   position: absolute;

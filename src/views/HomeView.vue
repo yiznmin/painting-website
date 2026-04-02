@@ -45,7 +45,7 @@
           class="featured-card"
         >
           <div class="featured-img-wrap">
-            <img v-if="artwork.image" :src="artwork.image" :alt="artwork.title" class="featured-img" />
+            <img v-if="artwork.image" :src="Array.isArray(artwork.image) ? artwork.image[0] : artwork.image" :alt="artwork.title" class="featured-img" />
             <div v-else class="featured-img-placeholder"></div>
           </div>
           <div class="featured-info">

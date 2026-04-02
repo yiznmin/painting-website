@@ -47,13 +47,13 @@ export const artworks = [
   {
     id: 5,
     title: '海邊書店',
-    image: '/images/season_book1.jpg',
+    image: ['/images/season_book1.jpg', '/images/season_book2.jpg', '/images/season_book3.jpg'],
     size: '30×40',
     colors: '23色',
     difficulty: '中等',
     classification: '快速選購成品',
     negotiable: true,
-    processing: ['/images/season_boo_process1.jpg', '/images/season_boo_process2.jpg', '/images/season_boo_process3.jpg', '/images/season_book2.jpg', '/images/season_book3.jpg'],
+    processing: ['/images/season_boo_process1.jpg', '/images/season_boo_process2.jpg', '/images/season_boo_process3.jpg'],
     description: '一間被綠蔭與花朵包圍的海邊書店，靜靜散發著溫暖悠閒的度假氛圍。'
   },
 ]

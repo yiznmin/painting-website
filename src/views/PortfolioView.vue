@@ -43,11 +43,11 @@
         :key="artwork.id"
         class="artwork-card"
       >
-        <div class="card-image-wrap" @click="artwork.image && openLightbox(artwork.image, artwork.title)">
-          <img v-if="artwork.image" :src="artwork.image" :alt="artwork.title" class="card-image" />
+        <div class="card-image-wrap" @click="cardImg(artwork) && openLightbox(cardImg(artwork), artwork.title)">
+          <img v-if="cardImg(artwork)" :src="cardImg(artwork)" :alt="artwork.title" class="card-image" />
           <div v-else class="card-image-placeholder"></div>
           <span v-if="artwork.classification" class="card-badge">{{ artwork.classification }}</span>
-          <div v-if="artwork.image" class="card-zoom-hint">點擊放大</div>
+          <div v-if="cardImg(artwork)" class="card-zoom-hint">點擊放大</div>
         </div>
         <RouterLink :to="{ name: 'artwork', params: { id: artwork.id } }" class="card-info">
           <h3 class="card-title">{{ artwork.title }}</h3>
@@ -81,6 +81,7 @@ import ImageLightbox from '../components/ImageLightbox.vue'
 const lightboxSrc = ref('')
 const lightboxAlt = ref('')
 function openLightbox(src, alt = '') { lightboxSrc.value = src; lightboxAlt.value = alt }
+function cardImg(artwork) { return Array.isArray(artwork.image) ? artwork.image[0] : artwork.image }
 
 useSeo({
   title: '作品集',
