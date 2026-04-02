@@ -161,11 +161,11 @@ useSeo({
   description: '把你的照片變成一幅油畫。提供數字油畫客製、代畫服務與成品選購，適合紀念禮物、情侶、寵物、家人。台灣接單，私訊報價。'
 })
 
-const featuredArtworks = computed(() => {
-  const candy = artworks.find(a => a.id === 4)
-  const rest = artworks.filter(a => a.id !== 4).slice(0, 2)
-  return [candy, ...rest]
-})
+const featuredIds = [4, 3, 5]
+
+const featuredArtworks = computed(() =>
+  featuredIds.map(id => artworks.find(a => a.id === id)).filter(Boolean)
+)
 
 </script>
 
