@@ -9,6 +9,7 @@ export const artworks = [
     difficulty: '簡易',
     classification: '快速選購成品',
     negotiable: true,
+    rank: 3,
     description: '以細膩筆觸描繪戴著頭巾的白色貓咪，靜謐而優雅。'
   },
   {
@@ -20,6 +21,7 @@ export const artworks = [
     difficulty: '簡易',
     classification: '快速選購成品',
     negotiable: true,
+    rank: 3,
     description: '斑斕花紋的貓咪，頭巾為牠增添一份神秘氣息。'
   },
   {
@@ -30,6 +32,7 @@ export const artworks = [
     colors: '30色',
     difficulty: '簡易',
     classification: '賣場指定款',
+    rank: 2,
     processing: ['/images/SecretGarden_processing_1.jpg'],
     description: '靜謐的花園一隅，光影交錯，如夢似幻。'
   },
@@ -41,6 +44,7 @@ export const artworks = [
     colors: '70色',
     difficulty: '複雜',
     classification: '賣場指定款',
+    rank: 1,
     processing: ['/images/CandyHawsCat_processing_1.jpg', '/images/CandyHawsCat_processing_2.jpg'],
     description: '手持糖葫蘆的貓咪，充滿童趣與節日歡樂。'
   },
@@ -53,6 +57,7 @@ export const artworks = [
     difficulty: '中等',
     classification: '快速選購成品',
     negotiable: true,
+    rank: 2,
     processing: ['/images/season_boo_process1.jpg', '/images/season_boo_process2.jpg', '/images/season_boo_process3.jpg'],
     description: '一間被綠蔭與花朵包圍的海邊書店，靜靜散發著溫暖悠閒的度假氛圍。'
   },

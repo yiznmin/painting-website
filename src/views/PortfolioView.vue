@@ -110,7 +110,7 @@ function setFilter(tag) {
 }
 
 const filteredArtworks = computed(() => {
-  let result = artworks
+  let result = [...artworks].sort((a, b) => (a.rank ?? 99) - (b.rank ?? 99))
   if (activeClass.value) result = result.filter(a => a.classification === activeClass.value)
   if (activeFilter.value) result = result.filter(a =>
     a.difficulty === activeFilter.value || a.size === activeFilter.value
